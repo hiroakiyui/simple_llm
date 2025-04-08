@@ -37,6 +37,12 @@ mkdir model
 
 - 実行ファイル名: `dl/model_dl.py`
 
+以下のコマンドで実行します：
+
+```bash
+python3 dl/model_dl.py
+
+
 以下を確認
 ~/.cache/huggingface/hub/models--TinyLlama--TinyLlama-1.1B-Chat-v1.0/snapshots/
 この中にxxxxxというハッシュキーがあります。その下にモデルがあります。
@@ -59,12 +65,6 @@ special_tokens_map.json
 そのモデルを以下のディレクトリにコピーします
 
 - 保存先: `/Users/xxx/Documents/dev/llm-env/model/`
-
-以下のコマンドで実行します：
-
-```bash
-python3 dl/model_dl.py
-```
 
 ---
 
