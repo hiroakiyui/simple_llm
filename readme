@@ -36,6 +36,9 @@ mkdir model
 ## 3. モデルのダウンロード
 
 - 実行ファイル名: `dl/model_dl.py`
+
+ここにダウンロードされているので、以下のディレクトリにコピーします
+
 - 保存先: `/Users/xxx/Documents/dev/llm-env/model/`
 
 以下のコマンドで実行します：
