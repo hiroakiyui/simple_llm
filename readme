@@ -38,6 +38,7 @@ mkdir model
 - 実行ファイル名: `dl/model_dl.py`
 
 ここにダウンロードされているので、以下のディレクトリにコピーします
+~/.cache/huggingface/hub/models--TinyLlama--TinyLlama-1.1B-Chat-v1.0/snapshots/番号
 
 - 保存先: `/Users/xxx/Documents/dev/llm-env/model/`
 
