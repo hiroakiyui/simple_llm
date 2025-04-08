@@ -1,33 +1,19 @@
-# TinyLlama + embedding model (e5-small) セットアップ手順書
+# TinyLlama セットアップ手順書
 
-この手順書では、以下の2つのモデルをローカルにダウンロードし、Pythonコードで簡単な文章生成を行うまでの流れを丁寧に説明します。
-
-- LLM: TinyLlama-1.1B-Chat-v1.0
-- Embedding model: intfloat/e5-small（※使用しない場合はスキップ可能）
-
+この手順書では、TinyLlama-1.1B-Chat-v1.0 をローカルにダウンロードし、文章生成を行うまでの手順を示します。
 
 ---
 
-## ▶ 使用環境
+## 使用環境
 
-- macOS (Apple Silicon)
 - Python 3.11
-- `venv` を使用
-- ファイル構成:
-
-```
-llm-env/
-├── model/                         # TinyLlama のディレクトリ
-├── models--intfloat--e5-small/    # e5-small のローカルモデル
-├── generate.py                    # TinyLlama で問い合わせを行うコード
-```
 
 ---
 
-## 1. Python環境の作成
+## 1. 仮想環境の作成
 
 ```bash
-cd /Users/xxx/Documents/dev/
+cd /Users/hiroakiyui/Documents/dev/
 python3.11 -m venv llm-env
 cd llm-env
 source bin/activate
@@ -35,87 +21,44 @@ source bin/activate
 
 ---
 
-## 2. 必要ライブラリのインストール
+## 2. ライブラリのインストール
 
 ```bash
 pip install --upgrade pip
-pip install torch transformers==4.41.2 sentence-transformers
+pip install torch transformers==4.41.2
 ```
-
-> transformers==4.41.2 は e5 と TinyLlama 両方で使える安定版
 
 ---
 
-## 3. TinyLlama のダウンロード
+## 3. モデルのダウンロード
 
-### 3.1 Python コードを作成 (model_dl.py)
+- 実行ファイル名: `model_dl.py`
+- 保存先: `/Users/hiroakiyui/Documents/dev/llm-env/model/`
 
-```python
-from transformers import AutoTokenizer, AutoModelForCausalLM
-
-model_path = "./model"
-
-tokenizer = AutoTokenizer.from_pretrained("TinyLlama/TinyLlama-1.1B-Chat-v1.0")
-model = AutoModelForCausalLM.from_pretrained("TinyLlama/TinyLlama-1.1B-Chat-v1.0")
-
-# ローカルにセーブ
-tokenizer.save_pretrained(model_path)
-model.save_pretrained(model_path)
-
-print("✅ TinyLlama のダウンロード完了")
-```
-
-### 3.2 実行
+以下のコマンドで実行します：
 
 ```bash
 python3 model_dl.py
 ```
 
-### ファイル構成例
-```
-llm-env/model/
-├── config.json
-├── generation_config.json
-├── model.safetensors
-├── special_tokens_map.json
-├── tokenizer_config.json
-├── tokenizer.model
-├── tokenizer.json
-```
+---
+
+## 4. 実行コード
+
+- 実行ファイル名: `generate.py`
+- 実行ファイル名: `mini.py`
 
 ---
 
-## 4. 文章生成用コード (generate.py)
+## ディレクトリ構成例
 
-```python
-from transformers import AutoTokenizer, AutoModelForCausalLM
-import torch
-
-model_path = "./model"
-tokenizer = AutoTokenizer.from_pretrained(model_path)
-model = AutoModelForCausalLM.from_pretrained(model_path, torch_dtype=torch.float32)
-
-user_input = "広島でおすすめのラーメン屋は？"
-prompt = f"ユーザー: {user_input}\nアシスタント:"
-
-inputs = tokenizer(prompt, return_tensors="pt")
-with torch.no_grad():
-    outputs = model.generate(
-        **inputs,
-        max_new_tokens=100,
-        do_sample=True,
-        temperature=0.7,
-        top_p=0.95
-    )
-
-output_text = tokenizer.decode(outputs[0], skip_special_tokens=True)
-print("===== TinyLlamaの応答 =====")
-print(output_text)
+```
+llm-env/
+├── model/             # TinyLlama の保存先
+├── model_dl.py        # TinyLlama をダウンロードするスクリプト
+├── generate.py        # 通常実行用
+├── mini.py            # 最小構成実行用
 ```
 
-### 実行
-```bash
-python3 generate.py
-```
-
+この手順でローカルで TinyLlama を使った文章生成が可能です。
 
