@@ -13,7 +13,7 @@
 ## 1. 仮想環境の作成
 
 ```bash
-cd /Users/hiroakiyui/Documents/dev/
+cd /Users/xxx/Documents/dev/
 python3.11 -m venv llm-env
 cd llm-env
 source bin/activate
@@ -33,7 +33,7 @@ pip install torch transformers==4.41.2
 ## 3. モデルのダウンロード
 
 - 実行ファイル名: `model_dl.py`
-- 保存先: `/Users/hiroakiyui/Documents/dev/llm-env/model/`
+- 保存先: `/Users/xxx/Documents/dev/llm-env/model/`
 
 以下のコマンドで実行します：
 
