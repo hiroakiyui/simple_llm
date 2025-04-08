@@ -29,6 +29,9 @@ pip install torch transformers==4.41.2
 ```
 
 ---
+ディレクトリ作成
+mkdir model
+
 
 ## 3. モデルのダウンロード
 
