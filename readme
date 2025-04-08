@@ -27,7 +27,7 @@ llm-env/
 ## 1. Python環境の作成
 
 ```bash
-cd /Users/hiroakiyui/Documents/dev/
+cd /Users/xxx/Documents/dev/
 python3.11 -m venv llm-env
 cd llm-env
 source bin/activate
