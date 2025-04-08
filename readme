@@ -32,13 +32,13 @@ pip install torch transformers==4.41.2
 
 ## 3. モデルのダウンロード
 
-- 実行ファイル名: `model_dl.py`
+- 実行ファイル名: `dl/model_dl.py`
 - 保存先: `/Users/xxx/Documents/dev/llm-env/model/`
 
 以下のコマンドで実行します：
 
 ```bash
-python3 model_dl.py
+python3 dl/model_dl.py
 ```
 
 ---
@@ -55,10 +55,10 @@ python3 model_dl.py
 ```
 llm-env/
 ├── model/             # TinyLlama の保存先
-├── model_dl.py        # TinyLlama をダウンロードするスクリプト
+├── dl/
+│   └── model_dl.py    # TinyLlama をダウンロードするスクリプト
 ├── generate.py        # 通常実行用
 ├── mini.py            # 最小構成実行用
 ```
 
-この手順でローカルで TinyLlama を使った文章生成が可能です。
 
