@@ -13,7 +13,7 @@
 ## 1. 仮想環境の作成
 
 ```bash
-cd /Users/xxx/Documents/dev/
+cd /Users/<ユーザー名>/Documents/dev/
 python3.11 -m venv llm-env
 cd llm-env
 source bin/activate
@@ -44,27 +44,27 @@ python3 dl/model_dl.py
 
 
 以下を確認
+mac
 ~/.cache/huggingface/hub/models--TinyLlama--TinyLlama-1.1B-Chat-v1.0/snapshots/
+
+windows
+C:\Users\<ユーザー名>\.cache\huggingface\hub\models--TinyLlama--TinyLlama-1.1B-Chat-v1.0\snapshots\
+
 この中にxxxxxというハッシュキーがあります。その下にモデルがあります。
 
 この中に以下のようなファイルがあれば、正常にダウンロード完了しています：
 
 pytorch_model.bin または model.safetensors
-
 config.json
-
 tokenizer.model
-
 tokenizer_config.json
-
 generation_config.json
-
 special_tokens_map.json
 
 
 そのモデルを以下のディレクトリにコピーします
 
-- 保存先: `/Users/xxx/Documents/dev/llm-env/model/`
+- 保存先: `/Users/<ユーザー名>/Documents/dev/llm-env/model/`
 
 ---
 
