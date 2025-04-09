@@ -8,6 +8,17 @@
 
 - Python 3.11
 
+## ディレクトリ構成例
+
+```
+llm-env/
+├── model/             # TinyLlama の保存先
+├── dl/
+│   └── model_dl.py    # TinyLlama をダウンロードするスクリプト
+├── generate.py        # 通常実行用
+├── mini.py            # 最小構成実行用
+```
+
 ---
 
 ## 1. 仮想環境の作成
@@ -75,15 +86,5 @@ special_tokens_map.json
 
 ---
 
-## ディレクトリ構成例
-
-```
-llm-env/
-├── model/             # TinyLlama の保存先
-├── dl/
-│   └── model_dl.py    # TinyLlama をダウンロードするスクリプト
-├── generate.py        # 通常実行用
-├── mini.py            # 最小構成実行用
-```
 
 
